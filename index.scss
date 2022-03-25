@@ -37,6 +37,11 @@ header {
       text-decoration: none;
       margin: variables.$padding1;
     }
+    a:hover {
+      @include shadows;
+
+      transition: 0.5s;
+    }
   }
 }
 
