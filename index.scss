@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Palette+Mosaic&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+//variables
+$font-mono: "Zilla Slab", "Courier New", Courier, monospace;
+$font-weird: "Palette Mosaic", Arial, Helvetica, sans-serif;
+$color-1: #1f18c0;
+$color-2: #0abab5;
+$color-3: #f3cfc6;
+$padding: 10px;
+
+body {
+  font-family: $font-mono;
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-family: $font-weird;
+}
+
+header {
+  background-color: $color-1;
+  h1 {
+    color: white;
+  }
+  padding: $padding;
+}
+
+nav {
+  background-color: $color-2;
+}
+
+aside {
+  background-color: $color-3;
+}
+
+section {
+  background-color: mix(white, $color-3);
+}
