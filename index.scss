@@ -1,39 +1,108 @@
-@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&family=Palette+Mosaic&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@use "sass-files/variables";
 
-//variables
-$font-mono: "Zilla Slab", "Courier New", Courier, monospace;
-$font-weird: "Palette Mosaic", Arial, Helvetica, sans-serif;
-$color-1: #1f18c0;
-$color-2: #0abab5;
-$color-3: #f3cfc6;
-$padding: 10px;
+@mixin borders($borders: 10px) {
+  border: {
+    width: $borders;
+    style: solid;
+    color: black;
+  }
+}
+
+@mixin shadows($shadows: 4px rgba(0, 0, 0, 0.4)) {
+  text-shadow: 2px 2px $shadows;
+}
 
 body {
-  font-family: $font-mono;
+  font-family: variables.$font-slab;
   font-size: 1.2rem;
 }
 
-h1 {
-  font-size: 3rem;
-  font-family: $font-weird;
+header {
+  @include borders;
+  background-color: variables.$color-1;
+  h1 {
+    @include shadows;
+    color: white;
+    font-size: 3rem;
+    font-family: variables.$font-weird;
+    margin-left: 20px;
+  }
+  nav {
+    @include borders($borders: 5px);
+
+    background-color: variables.$color-2;
+    padding: variables.$padding1;
+    a {
+      color: white;
+      text-decoration: none;
+      margin: variables.$padding1;
+    }
+  }
 }
 
-header {
-  background-color: $color-1;
-  h1 {
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  aside {
+    @include borders($borders: 5px);
+    @include shadows;
+    flex-direction: row;
+    width: 20%;
+
+    background-color: variables.$color-3;
+    padding: variables.$padding2;
+  }
+  section {
+    @include borders($borders: 25px);
+    width: 80%;
+
+    background-color: mix(white, variables.$color-3);
+    padding: variables.$padding2;
+  }
+  div {
+    // border: 1px dotted mix(white, variables.$color-1);
+    margin: 10px;
+    padding: variables.$padding1;
+  }
+}
+
+footer {
+  background-color: variables.$color-1;
+  p {
+    margin: 0px;
+    padding: variables.$padding1;
     color: white;
   }
-  padding: $padding;
 }
 
-nav {
-  background-color: $color-2;
+%message-shared {
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid black;
+  font-size: 0.9rem;
+  font-family: variables.$font-mono;
 }
 
-aside {
-  background-color: $color-3;
+.message {
+  @extend %message-shared;
+  border-width: 0px;
 }
 
-section {
-  background-color: mix(white, $color-3);
+.success {
+  @extend %message-shared;
+  border-color: green;
+  color: green;
+}
+
+.error {
+  @extend %message-shared;
+  border-color: red;
+  color: red;
+}
+
+.warning {
+  @extend %message-shared;
+  border-color: goldenrod;
+  color: goldenrod;
 }
